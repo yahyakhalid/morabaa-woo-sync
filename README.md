@@ -70,6 +70,12 @@ A WordPress plugin that keeps WooCommerce stock and prices in sync with **Moraba
 - Links products by Morabaa item ID, SKU/barcode, or name-similarity suggestions; bulk linking and importing.
 - Configurable JSON field mapping, Arabic RTL admin UI, App Secret encrypted at rest, read-only API access.
 
+## الرخصة
+
+[GPL-2.0-or-later](LICENSE): تقدر تستخدم الإضافة وتعدّلها وتوزّعها، بشرط أن تبقى أي نسخة معدّلة تحت نفس الرخصة.
+
+Licensed under the GNU General Public License v2.0 or later.
+
 ## المطوّر
 
 **[Yahya Khalid](https://github.com/yahyakhalid)** · [akkadX](https://akkadx.com) · [hi@akkadx.com](mailto:hi@akkadx.com)
