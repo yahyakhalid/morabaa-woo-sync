@@ -3,8 +3,8 @@
  * Plugin Name: Morabaa WooCommerce Inventory Sync
  * Description: مزامنة مخزون WooCommerce مع نظام مربّع POS عبر API مع لوحة تحكم عربية.
  * Version: 1.1.35
- * Author: Yahya Khalid & morabaa.com
- * Author URI: https://mymorabaa.com
+ * Author: Yahya Khalid
+ * Author URI: https://akkadx.com
  * Requires Plugins: woocommerce
  */
 

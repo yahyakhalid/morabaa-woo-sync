@@ -1,28 +1,43 @@
 # Morabaa WooCommerce Inventory Sync
 
-إضافة WordPress تربط متجر WooCommerce بنظام **مربّع POS**، فيصير مخزون المتجر مطابقاً للمخزون الحقيقي في نقطة البيع بدون إدخال يدوي.
+إضافة WordPress تربط متجر WooCommerce بنظام نقاط البيع **مربّع (Morabaa POS)**، فيبقى مخزون المتجر وأسعاره مطابقة لما في نقطة البيع، بدون إدخال يدوي.
 
-A WordPress plugin that keeps WooCommerce stock in sync with **Morabaa POS** through the Morabaa API, with a full Arabic admin dashboard.
+A WordPress plugin that keeps WooCommerce stock and prices in sync with **Morabaa POS** through its API, with a full Arabic admin dashboard.
 
----
+> [!IMPORTANT]
+> **إضافة مستقلة.** هذه الإضافة ليست تابعة لشركة مربّع، ولا صادرة عنها، ولا معتمدة منها، ولا مرتبطة بها بأي شكل. «مربّع» و«Morabaa» علامتان تجاريتان لأصحابهما، وذكرهما هنا فقط لتوضيح التوافق. الدعم والمسؤولية عن الإضافة على مطوّرها وحده.
+>
+> **Independent project.** This plugin is not affiliated with, endorsed by, sponsored by or connected to Morabaa in any way. "Morabaa" is a trademark of its respective owner and is used here only to describe compatibility.
+
+![لوحة التحكم](screenshots/dashboard.png)
 
 ## ليش هذه الإضافة؟
 
-أغلب المحلات اللي تبيع من نقطة بيع وتبيع أونلاين بنفس الوقت تعاني من نفس المشكلة: المنتج ينفد بالمحل ويبقى ظاهراً بالموقع، أو العكس. الإضافة تسحب الكميات من مربّع وتحدّث WooCommerce تلقائياً، وتربط كل منتج بالمادة المقابلة له في مربّع.
+المحل اللي يبيع من نقطة بيع وأونلاين بنفس الوقت يواجه نفس المشكلة دائماً: المنتج ينفد بالمحل ويبقى ظاهراً بالموقع، أو العكس. الإضافة تسحب الكميات والأسعار من مربّع كل 20 دقيقة وتحدّث WooCommerce تلقائياً، وتربط كل منتج بالمادة المقابلة له.
 
 ## الميزات
 
-- **مزامنة تلقائية للمخزون** كل 20 دقيقة عبر WP-Cron، مع زر مزامنة يدوية على دفعات.
-- **ربط المنتجات** بأكثر من طريقة:
-  - بالـ Item ID من مربّع (حقل يدوي داخل صفحة المنتج).
-  - بالـ SKU أو الباركود، مع دعم المواد التي ترجع باركوداتها كقائمة.
-  - باقتراحات حسب تشابه الاسم، للمنتجات التي لا تحمل SKU.
-  - ربط جماعي لكل المطابقات الدقيقة بضغطة واحدة.
-- **استيراد المواد** من مربّع إلى WooCommerce كمنتجات جديدة، مع البحث والاختيار.
-- **سعر البيع** يُقرأ من الوحدة الافتراضية للمادة.
-- **تخصيص الحقول (Mapping)**: تحدد بنفسك أي حقل في رد الـ API يمثل المعرّف والاسم والسعر والكمية والـ SKU.
-- **لوحة تحكم عربية**: حالة الاتصال، المنتجات المربوطة وغير المربوطة، آخر مزامنة لكل منتج، وأداة تشخيص للباركود.
-- **تخزين آمن للمفتاح السري**: يُشفَّر الـ App Secret في قاعدة البيانات باستخدام OpenSSL ومفاتيح WordPress.
+| | |
+|---|---|
+| **مزامنة تلقائية** | كل 20 دقيقة عبر WP-Cron، مع زر مزامنة يدوية فورية وزر سحب الحالة بدون مزامنة. |
+| **ربط ذكي للمنتجات** | بالـ Item ID من مربّع، أو بالـ SKU والباركود (حتى لو رجع الباركود كقائمة)، أو باقتراحات تشابه الأسماء مع نسبة التطابق. |
+| **ربط جماعي** | ربط كل المطابقات الدقيقة بضغطة واحدة. |
+| **استيراد** | استيراد مواد مربّع غير الموجودة في المتجر كمنتجات جديدة، مع بحث واختيار. |
+| **تخصيص الحقول** | تحدد أي مفتاح في استجابة الـ API يمثل المعرّف والاسم والسعر والمخزون والـ SKU. |
+| **لوحة تحكم عربية** | حالة الاتصال، المنتجات المربوطة وغير المربوطة، آخر مزامنة، وأداة تشخيص للباركود. |
+| **أمان** | الـ App Secret يُشفَّر في قاعدة البيانات (OpenSSL مع مفاتيح WordPress)، والإضافة **تقرأ فقط** من مربّع (طلبات GET). |
+
+## لقطات الشاشة
+
+> اللقطات من موقع تجريبي محلي ببيانات وهمية.
+
+| الربط واقتراحات الأسماء | الاستيراد |
+|---|---|
+| ![الربط](screenshots/linking.png) | ![الاستيراد](screenshots/import.png) |
+
+| الإعدادات والأمان | حقل Morabaa Item ID داخل المنتج |
+|---|---|
+| ![الإعدادات](screenshots/settings.png) | ![حقل المنتج](screenshots/product-field.png) |
 
 ## المتطلبات
 
@@ -32,35 +47,29 @@ A WordPress plugin that keeps WooCommerce stock in sync with **Morabaa POS** thr
 
 ## التثبيت
 
-1. حمّل المستودع كملف ZIP: `Code` ← `Download ZIP`.
+1. حمّل أحدث نسخة: `Code` ← `Download ZIP`.
 2. من لوحة WordPress: **الإضافات** ← **أضف جديد** ← **رفع إضافة**، واختر الملف.
-3. فعّل الإضافة. ستظهر قائمة **مربّع** في لوحة التحكم.
+3. فعّل الإضافة، فتظهر قائمة **مزامنة مع المربّع** في لوحة التحكم.
 
 ## الإعداد
 
-1. افتح صفحة الإضافة وأدخل **App ID** و**App Secret** من حسابك في مربّع.
-2. اترك عنوان الـ API على القيمة الافتراضية `https://api.mymorabaa.com/v1/items`، إلا إذا عندك عنوان مختلف.
-3. اضغط **حفظ**، ثم **سحب الحالة الآن** حتى تتأكد من الاتصال.
-4. اربط المنتجات: ابدأ بالربط بالـ SKU، ثم راجع الاقتراحات للمنتجات المتبقية.
-5. فعّل **المزامنة التلقائية**.
-
-## الهيكل
-
-```
-morabaa-woo-sync.php         # الإضافة: الإعدادات، الاتصال بالـ API، الربط، المزامنة، لوحة التحكم
-assets/css/morabaa-woo-admin.css
-assets/js/morabaa-woo-admin.js
-```
+1. افتح **الإعدادات والأمان** وأدخل **App ID** و**App Secret**.
+2. اترك عنوان الـ API على القيمة الافتراضية `https://api.mymorabaa.com/v1/items` إلا إذا عندك عنوان مختلف.
+3. اضغط **حفظ الإعدادات**، ثم **اختبار الاتصال الآن**.
+4. من **الربط اليدوي** ابدأ بـ «ربط الكل حسب SKU/Barcode»، ثم راجع اقتراحات الأسماء للمنتجات المتبقية.
+5. من **لوحة التحكم والتقارير** تأكد أن المزامنة التلقائية مفعّلة.
 
 ## ملاحظات
 
 - WP-Cron يعتمد على زيارات الموقع. إذا كان الموقع قليل الزيارات، اربط `wp-cron.php` بـ cron حقيقي على السيرفر حتى تبقى المزامنة منتظمة.
-- الإضافة **تقرأ فقط** من مربّع (طلبات GET)، والتحديث يصير على جهة WooCommerce فقط.
+- الإضافة لا تكتب أي شيء في مربّع، والتحديث يصير على جهة WooCommerce فقط.
 
-## التطوير
+## English summary
 
-تطوير: **[Yahya Khalid](https://github.com/yahyakhalid)** · [akkadX](https://akkadx.com)
+- Syncs WooCommerce stock and sell price from Morabaa POS every 20 minutes (WP-Cron), plus manual sync.
+- Links products by Morabaa item ID, SKU/barcode, or name-similarity suggestions; bulk linking and importing.
+- Configurable JSON field mapping, Arabic RTL admin UI, App Secret encrypted at rest, read-only API access.
 
-للاستفسار والتخصيص: [hi@akkadx.com](mailto:hi@akkadx.com)
+## المطوّر
 
-> مربّع (Morabaa) علامة تجارية لأصحابها: [mymorabaa.com](https://mymorabaa.com).
+**[Yahya Khalid](https://github.com/yahyakhalid)** · [akkadX](https://akkadx.com) · [hi@akkadx.com](mailto:hi@akkadx.com)
